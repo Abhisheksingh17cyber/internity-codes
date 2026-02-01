@@ -4,8 +4,9 @@ import { useState } from "react";
 import { CodeEditor } from "@/components/CodeEditor";
 import { Button } from "@/components/ui/button";
 import { GoHome } from "@/components/GoHome";
-import { Play, LogOut, Sparkles } from "lucide-react";
+import { Play, LogOut, Sparkles, Shield } from "lucide-react";
 import { signOut } from "next-auth/react";
+import Link from "next/link";
 
 export function DashboardClient({ user }: { user: any }) {
     const [code, setCode] = useState("// Start coding here...\n// Type 'error' to see the animation.");
@@ -73,6 +74,14 @@ export function DashboardClient({ user }: { user: any }) {
                     INTERNITY-CODES
                 </div>
                 <div className="flex items-center gap-4">
+                    {user.role === 'ADMIN' && (
+                        <Link href="/admin">
+                            <Button variant="outline" size="sm" className="border-red-500/50 hover:bg-red-500/20 text-red-400 gap-2">
+                                <Shield className="h-4 w-4" />
+                                Admin Panel
+                            </Button>
+                        </Link>
+                    )}
                     <div className="flex flex-col items-end">
                         <span className="text-sm font-medium text-white">
                             {user.name || "Developer"}
