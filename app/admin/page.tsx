@@ -3,6 +3,14 @@ import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import { AdminDashboardClient } from "./client";
 
+interface SessionUser {
+    name?: string | null;
+    email?: string | null;
+    image?: string | null;
+    role?: string;
+    id?: string;
+}
+
 export default async function AdminPage() {
     const session = await getServerSession(authOptions);
 
@@ -11,7 +19,7 @@ export default async function AdminPage() {
     }
 
     // Check if user is admin
-    const user = session.user as any;
+    const user = session.user as SessionUser;
     if (user.role !== "ADMIN") {
         redirect("/dashboard");
     }

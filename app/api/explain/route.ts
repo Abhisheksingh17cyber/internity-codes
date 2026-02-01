@@ -26,7 +26,7 @@ export async function POST(req: Request) {
             explanation: completion.choices[0].message.content
         });
 
-    } catch (error) {
+    } catch {
         return NextResponse.json({ explanation: "Error analyzing code." }, { status: 500 });
     }
 }

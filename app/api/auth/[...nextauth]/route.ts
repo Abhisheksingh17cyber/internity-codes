@@ -18,13 +18,13 @@ export const authOptions: NextAuthOptions = {
     ],
     debug: true, // ENABLE DEBUGGING
     callbacks: {
-        async session({ session, user }) {
+        async session({ session }) {
             if (session.user) {
                 // Assign role from DB
                 const dbUser = await prisma.user.findUnique({ where: { email: session.user.email! } });
                 if (dbUser) {
-                    (session.user as any).role = dbUser.role;
-                    (session.user as any).id = dbUser.id;
+                    (session.user as { role?: string; id?: string }).role = dbUser.role;
+                    (session.user as { role?: string; id?: string }).id = dbUser.id;
                 }
             }
             return session

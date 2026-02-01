@@ -13,7 +13,7 @@ interface CodeEditorProps {
 export function CodeEditor({ language, code, onChange }: CodeEditorProps) {
     const editorRef = useRef<editor.IStandaloneCodeEditor | null>(null);
 
-    const handleEditorDidMount: OnMount = (editor, monaco) => {
+    const handleEditorDidMount: OnMount = (editor) => {
         editorRef.current = editor;
     };
 

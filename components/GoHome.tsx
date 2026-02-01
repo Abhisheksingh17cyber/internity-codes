@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
+import { useEffect, useRef } from "react";
 
 interface GoHomeProps {
     trigger: boolean;
@@ -9,20 +8,29 @@ interface GoHomeProps {
 }
 
 export function GoHome({ trigger, onReset }: GoHomeProps) {
-    const [visible, setVisible] = useState(false);
+    const timerRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
         if (trigger) {
-            setVisible(true);
-            const timer = setTimeout(() => {
+            // Clear any existing timer
+            if (timerRef.current) {
+                clearTimeout(timerRef.current);
+            }
+            
+            // Set timer to reset after 3 seconds
+            timerRef.current = setTimeout(() => {
                 if (onReset) onReset();
-                setVisible(false);
-            }, 3000); // Show for 3 seconds then hide
-            return () => clearTimeout(timer);
+            }, 3000);
         }
+
+        return () => {
+            if (timerRef.current) {
+                clearTimeout(timerRef.current);
+            }
+        };
     }, [trigger, onReset]);
 
-    if (!visible) return null;
+    if (!trigger) return null;
 
     return (
         <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black animate-in fade-in duration-300">
