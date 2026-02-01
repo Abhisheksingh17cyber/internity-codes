@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface User {
     id: string;
@@ -259,7 +260,7 @@ export function AdminDashboardClient({ user }: { user: AdminUser }) {
                                                 <div key={u.id} className="p-4 flex items-center gap-4">
                                                     <div className="w-10 h-10 rounded-full bg-neutral-800 flex items-center justify-center overflow-hidden">
                                                         {u.image ? (
-                                                            <img src={u.image} alt={u.name || ''} className="w-full h-full object-cover" />
+                                                            <Image src={u.image} alt={u.name || ''} width={40} height={40} className="w-full h-full object-cover" />
                                                         ) : (
                                                             <Users className="w-5 h-5 text-neutral-500" />
                                                         )}
@@ -312,7 +313,7 @@ export function AdminDashboardClient({ user }: { user: AdminUser }) {
                                                             <div className="flex items-center gap-3">
                                                                 <div className="w-8 h-8 rounded-full bg-neutral-800 flex items-center justify-center overflow-hidden">
                                                                     {u.image ? (
-                                                                        <img src={u.image} alt={u.name || ''} className="w-full h-full object-cover" />
+                                                                        <Image src={u.image} alt={u.name || ''} width={32} height={32} className="w-full h-full object-cover" />
                                                                     ) : (
                                                                         <Users className="w-4 h-4 text-neutral-500" />
                                                                     )}

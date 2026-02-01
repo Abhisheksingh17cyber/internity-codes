@@ -20,11 +20,11 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-black text-white relative overflow-hidden">
 
       {/* Animated Background Elements */}
-      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-white/3 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-white/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-100 h-100 bg-white/3 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-75 h-75 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
       {/* Grid Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size-[100px_100px] pointer-events-none" />
 
       <div className="z-10 text-center space-y-12 max-w-4xl">
 

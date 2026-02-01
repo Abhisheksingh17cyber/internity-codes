@@ -245,7 +245,7 @@ export async function POST(req: Request) {
         
         return NextResponse.json(result);
         
-    } catch (error) {
+    } catch {
         return NextResponse.json({ 
             hasErrors: true, 
             errorCount: 1, 

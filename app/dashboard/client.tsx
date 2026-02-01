@@ -128,7 +128,7 @@ export function DashboardClient({ user }: { user: { name?: string | null; email?
             {/* Funny Error Message Overlay */}
             {showErrorMessage && (
                 <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 animate-in fade-in duration-300">
-                    <div className="bg-gradient-to-br from-red-950 to-neutral-900 border-2 border-red-500/50 rounded-2xl p-6 md:p-10 max-w-lg w-full text-center relative shadow-2xl shadow-red-500/20 animate-shake animate-pulse-glow">
+                    <div className="bg-linear-to-br from-red-950 to-neutral-900 border-2 border-red-500/50 rounded-2xl p-6 md:p-10 max-w-lg w-full text-center relative shadow-2xl shadow-red-500/20 animate-shake animate-pulse-glow">
                         <button 
                             onClick={handleDismissError}
                             className="absolute top-4 right-4 text-neutral-400 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
@@ -322,7 +322,7 @@ export function DashboardClient({ user }: { user: { name?: string | null; email?
                     </div>
 
                     {/* Code Editor */}
-                    <div className="flex-1 border border-neutral-800 rounded-md overflow-hidden relative min-h-[200px]">
+                    <div className="flex-1 border border-neutral-800 rounded-md overflow-hidden relative min-h-50">
                         <CodeEditor
                             code={code}
                             onChange={(val) => setCode(val || "")}
